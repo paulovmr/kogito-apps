@@ -15,7 +15,7 @@
  */
 
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import { ApolloProvider } from 'react-apollo';
 import { ApolloClient } from 'apollo-client';
 
@@ -29,6 +29,7 @@ import managementConsoleLogo from '../../../static/managementConsoleLogo.svg';
 import JobsManagementContextProvider from '../../../channel/JobsManagement/JobsManagementContextProvider';
 import ProcessDetailsContextProvider from '../../../channel/ProcessDetails/ProcessDetailsContextProvider';
 import ProcessListContextProvider from '../../../channel/ProcessList/ProcessListContextProvider';
+import { MemoryRouter } from 'react-router';
 
 interface IOwnProps {
   apolloClient: ApolloClient<any>;
@@ -61,11 +62,11 @@ const ConsolesLayout: React.FC<IOwnProps> = ({
         <ProcessListContextProvider apolloClient={apolloClient}>
           <ProcessDetailsContextProvider apolloClient={apolloClient}>
             <JobsManagementContextProvider apolloClient={apolloClient}>
-              <BrowserRouter>
+              <MemoryRouter>
                 <Switch>
                   <Route path="/" render={renderPage} />
                 </Switch>
-              </BrowserRouter>
+              </MemoryRouter>
             </JobsManagementContextProvider>
           </ProcessDetailsContextProvider>
         </ProcessListContextProvider>
