@@ -18,13 +18,13 @@ module.exports = {
       chunks: ['app']
     }),
     new webpack.EnvironmentPlugin({
-      KOGITO_DATAINDEX_HTTP_URL: 'http://localhost:4000/graphql',
+      KOGITO_DATAINDEX_HTTP_URL: 'http://localhost:8180/graphql/',
       KOGITO_APP_VERSION: 'DEV',
       KOGITO_APP_NAME: 'Runtime tools dev-ui',
       TEST_USER_SYSTEM_ENABLED: false
     }),
     new CopyPlugin({ patterns: [
-        { from: "./resources", to: "./" },
+        { from: "./resources", to: "./resources" },
         { from: "./src/static", to: "./static" },
         { from: "./src/components/styles.css", to: "./components/styles.css" }
     ]})
@@ -174,7 +174,9 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    publicPath: '/'
+    //publicPath: 'http://localhost:8080/q/dev/org.kie.kogito.runtime-tools-quarkus-extension/resources/webapp/'
+    publicPath: '/home/paulo/projects/redhat/forks/kogito-apps2/ui-packages/packages/runtime-tools-dev-ui-webapp/dist/',
+    //libraryTarget: "umd",
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js'],
