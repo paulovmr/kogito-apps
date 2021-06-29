@@ -20,3 +20,9 @@ export {
   useKogitoAppContext
 } from './KogitoAppContext';
 export { default as KogitoAppContextProvider } from './KogitoAppContextProvider';
+export {
+  default as RuntimeToolsDevUIAppContext,
+  DevUIAppContext,
+  useDevUIAppContext
+} from './DevUIAppContext';
+export { default as DevUIAppContextProvider } from './DevUIAppContextProvider';
