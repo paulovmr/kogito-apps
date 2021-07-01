@@ -22,6 +22,7 @@ export const getTaskSchemaEndPoint = (
   task: UserTaskInstance,
   user: User
 ): string => {
+  console.log('test', task, user)
   let params = '';
   let endpoint = task.endpoint;
 
